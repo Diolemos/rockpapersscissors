@@ -75,6 +75,16 @@ function gameRound(playerSelection, computerSelection) {
         computerScoreNode.innerText = computerScore;
     }
     else { resultDisplay.innerText = "Sorry,something went wrong" }
+
+    if (userScore == '5') {
+        resultDisplay.innerText = resultDisplay.innerText + ".  Copngratulations, you won the game! :)"
+        computerScore = 0;
+        userScore = 0;
+    } else if (computerScore == '5') {
+        resultDisplay.innerText = resultDisplay.innerText + ".  You lost, Better luck next time :("
+        computerScore = 0;
+        userScore = 0;
+    }
 }
 
 
@@ -111,3 +121,4 @@ btn.forEach(function (element) {
         gameRound(element.id, computerPlay());
     })
 })
+
