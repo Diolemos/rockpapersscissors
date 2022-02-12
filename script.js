@@ -5,8 +5,16 @@ let btnpaper = document.getElementById('paper')
 let btnscissors = document.getElementById('scissors')
 
 let btn = document.querySelectorAll('.option');
+
+let userScoreNode = document.getElementById("userScore");
+let computerScoreNode = document.getElementById("computerScore");
 let userScore = 0;
 let computerScore = 0;
+
+userScoreNode.innerText = userScore;
+computerScoreNode.innerText = computerScore;
+
+
 
 let computerSelection
 let playerSelection
@@ -37,22 +45,34 @@ function gameRound(playerSelection, computerSelection) {
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
         computerScore++;
+        userScoreNode.innerText = userScore;
+        computerScoreNode.innerText = computerScore;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
-        userScore++
+        userScore++;
+        userScoreNode.innerText = userScore;
+        computerScoreNode.innerText = computerScore;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
-        computerScore++
+        computerScore++;
+        userScoreNode.innerText = userScore;
+        computerScoreNode.innerText = computerScore;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
-        userScore++
+        userScore++;
+        userScoreNode.innerText = userScore;
+        computerScoreNode.innerText = computerScore;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection} `;
         userScore++;
+        userScoreNode.innerText = userScore;
+        computerScoreNode.innerText = computerScore;
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection} `;
-        computerScore++
+        computerScore++;
+        userScoreNode.innerText = userScore;
+        computerScoreNode.innerText = computerScore;
     }
     else { resultDisplay.innerText = "Sorry,something went wrong" }
 }
