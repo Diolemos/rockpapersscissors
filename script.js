@@ -46,10 +46,14 @@ function gameRound(playerSelection, computerSelection) {
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
         userScore++
-    } else if (playerSelection === "scissors" && computerSelection === "paper") { resultDisplay.innerText = `You chose ${playerSelection; } and the computer chose ${ computerSelection } `;
-    userScore++; }
-    else if (playerSelection === "scissors" && computerSelection === "rock") { resultDisplay.innerText = `You chose ${ playerSelection } and the computer chose ${ computerSelection } `;
-computerScore++ }
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection} `;
+        userScore++;
+    }
+    else if (playerSelection === "scissors" && computerSelection === "rock") {
+        resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection} `;
+        computerScore++
+    }
     else { resultDisplay.innerText = "Sorry,something went wrong" }
 }
 
