@@ -1,3 +1,17 @@
+let resultDisplay = document.getElementById("result")
+
+let btnRock = document.getElementById('rock')
+let btnpaper = document.getElementById('paper')
+let btnscissors = document.getElementById('scissors')
+
+let btn = document.querySelectorAll('.option');
+let userScore = 0;
+let computerScore = 0;
+
+let computerSelection
+let playerSelection
+
+
 function computerPlay() {
 
     let ramdomNumber = Math.floor(Math.random() * 3 + 1);
@@ -15,48 +29,61 @@ function computerPlay() {
     }
 }
 
+
 function gameRound(playerSelection, computerSelection) {
-    playerSelection = prompt("Type Rock, Paper or scissors")
-    playerSelection = playerSelection.toLocaleLowerCase()
-    computerSelection = computerPlay();
+
     if (playerSelection === computerSelection) {
-        return "It's a tie!"
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        userScore++;
-        return "paper beats rock, you win!"
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        computerScore++;
-        return "Sorry,Looks like your paper's been cut, better luck next time!"
+        resultDisplay.innerText = "It's a tie"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
+        resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
         computerScore++;
-        return "Sorry, your rock is all wrapped up! better luck next time, mate"
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        userScore++;
-        return "Nice move! you smashed the computer's scissors. way 2 go! "
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        computerScore++;
-        return "Sorry, your scissors are smashed, better luck next time"
-    } else if (playerSelection === "scissors" && computerSelection == "paper") {
-        userScore++;
-        return "nice move, you shredded the computer's paper"
-    }
+        resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
+        userScore++
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
+        computerScore++
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        resultDisplay.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
+        userScore++
+    } else if (playerSelection === "scissors" && computerSelection === "paper") { resultDisplay.innerText = `You chose ${playerSelection; } and the computer chose ${ computerSelection } `;
+    userScore++; }
+    else if (playerSelection === "scissors" && computerSelection === "rock") { resultDisplay.innerText = `You chose ${ playerSelection } and the computer chose ${ computerSelection } `;
+computerScore++ }
+    else { resultDisplay.innerText = "Sorry,something went wrong" }
 }
 
-let userScore = 0;
-let computerScore = 0;
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        console.log(gameRound())
-    }
 
-    console.log("The user score is: " + userScore + " and the computerScore is: " + computerScore);
+// function game() {
+//     for (let i = 1; i <= 5; i++) {
+//         console.log(gameRound())
+//     }
 
-    if (userScore > computerScore) {
-        console.log("Congratulations, you won the game")
-    } else {
-        console.log("Sorry, Better luck next time")
-    }
-    userScore = 0;
-    computerScore = 0;
-}
+//     console.log("The user score is: " + userScore + " and the computerScore is: " + computerScore);
 
+//     if (userScore > computerScore) {
+//         console.log("Congratulations, you won the game")
+//     } else {
+//         console.log("Sorry, Better luck next time")
+//     }
+//     userScore = 0;
+//     computerScore = 0;
+// }
+
+// for (let i = 0; i < 3; i++) {
+//     btn[i].addEventListener('click',
+//         function () {
+//             computerSelection = computerPlay();
+//             playerSelection = event.target.innerText.toLowerCase();
+
+//             gameRound();
+//         })
+// }
+
+btn.forEach(function (element) {
+    element.addEventListener('click', function () {
+
+
+        gameRound(element.id, computerPlay());
+    })
+})
